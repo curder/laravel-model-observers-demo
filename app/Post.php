@@ -6,5 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    //
+    protected $fillable = [
+        'title', 'body',
+    ];
+
+    public static function boot()
+    {
+        parent::boot();
+        static::observe(new \App\Observers\PostObserver());
+    }
 }
