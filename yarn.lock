@@ -5324,7 +5324,7 @@ postcss@7.0.21:
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-postcss@^8.1.14, postcss@^8.2.8:
+postcss@^8.1, postcss@^8.2.8:
   version "8.2.8"
   resolved "https://registry.npm.taobao.org/postcss/download/postcss-8.2.8.tgz#0b90f9382efda424c4f0f69a2ead6f6830d08ece"
   integrity sha1-C5D5OC79pCTE8PaaLq1vaDDQjs4=
