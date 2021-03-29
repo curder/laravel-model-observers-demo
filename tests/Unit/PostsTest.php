@@ -15,28 +15,32 @@ class PostsTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function it_can_create_post()
+    public function it_can_create_post() : void
     {
         Post::create(['title' => 'title', 'body' => 'Body']);
 
         // saving、creating、created、saved
         collect(['saving', 'crating', 'created', 'saved'])
-            ->every(fn ($action) => $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion()));
+            ->every(function ($action) {
+                $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion());
+            });
     }
 
     /** @test */
-    public function it_can_destroy_post()
+    public function it_can_destroy_post() : void
     {
         $post = factory(Post::class)->create();
 
         Post::destroy($post->id);
         // deleting、deleted
         collect(['deleting', 'deleted'])
-           ->every(fn ($action) => $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion()));
+           ->every(function ($action) {
+               $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion());
+           });
     }
 
     /** @test */
-    public function it_can_restore_post()
+    public function it_can_restore_post() : void
     {
         $post = factory(Post::class)->create();
 
@@ -48,11 +52,13 @@ class PostsTest extends TestCase
 
         // restoring、saving、updating、updated、saved、restored
         collect(['restoring', 'saving', 'updating', 'updated', 'saved', 'restored'])
-            ->every(fn ($action) => $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion()));
+            ->every(function ($action) {
+                $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion());
+            });
     }
 
     /** @test */
-    public function it_can_force_delete_post()
+    public function it_can_force_delete_post() : void
     {
         $post = factory(Post::class)->create();
 
@@ -60,11 +66,13 @@ class PostsTest extends TestCase
 
         // deleting、deleted
         collect(['deleting', 'deleted'])
-            ->every(fn ($action) => $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion()));
+            ->every(function ($action) {
+                $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion());
+            });
     }
 
     /** @test */
-    public function it_can_update_post()
+    public function it_can_update_post() : void
     {
         $post = factory(Post::class)->create();
 
@@ -73,11 +81,13 @@ class PostsTest extends TestCase
 
         // saving、updating、updated、saved
         collect(['saving', 'updating', 'updated', 'saved'])
-            ->every(fn ($action) => $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion()));
+            ->every(function ($action) {
+                $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion());
+            });
     }
 
     /** @test */
-    public function it_can_delete_post()
+    public function it_can_delete_post() : void
     {
         Post::withoutGlobalScopes();
 
@@ -86,6 +96,8 @@ class PostsTest extends TestCase
 
         // deleting、deleted
         collect(['deleting', 'deleted'])
-            ->every(fn ($action) => $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion()));
+            ->every(function ($action) {
+                $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion());
+            });
     }
 }
