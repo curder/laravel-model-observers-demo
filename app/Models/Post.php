@@ -1,14 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use App\Observers\PostObserver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
     use SoftDeletes;
-    
+
     protected $fillable = [
         'title', 'body',
     ];
@@ -16,6 +17,6 @@ class Post extends Model
     public static function boot()
     {
         parent::boot();
-        static::observe(new \App\Observers\PostObserver());
+        static::observe(new PostObserver());
     }
 }
