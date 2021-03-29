@@ -2,11 +2,8 @@
 namespace Tests\Unit;
 
 use App\Models\Post;
-use App\Observers\PostObserver;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Event;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 /**
  * Class PostsTest
@@ -24,18 +21,18 @@ class PostsTest extends TestCase
 
         // saving、creating、created、saved
         collect(['saving', 'crating', 'created', 'saved'])
-            ->every(fn($action) => $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion()));
+            ->every(fn ($action) => $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion()));
     }
 
     /** @test */
     public function it_can_destroy_post()
     {
-       $post = factory(Post::class)->create();
+        $post = factory(Post::class)->create();
 
-       Post::destroy($post->id);
-       // deleting、deleted
-       collect(['deleting', 'deleted'])
-           ->every(fn($action) => $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion()));
+        Post::destroy($post->id);
+        // deleting、deleted
+        collect(['deleting', 'deleted'])
+           ->every(fn ($action) => $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion()));
     }
 
     /** @test */
@@ -51,7 +48,7 @@ class PostsTest extends TestCase
 
         // restoring、saving、updating、updated、saved、restored
         collect(['restoring', 'saving', 'updating', 'updated', 'saved', 'restored'])
-            ->every(fn($action) => $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion()));
+            ->every(fn ($action) => $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion()));
     }
 
     /** @test */
@@ -63,7 +60,7 @@ class PostsTest extends TestCase
 
         // deleting、deleted
         collect(['deleting', 'deleted'])
-            ->every(fn($action) => $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion()));
+            ->every(fn ($action) => $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion()));
     }
 
     /** @test */
@@ -76,7 +73,7 @@ class PostsTest extends TestCase
 
         // saving、updating、updated、saved
         collect(['saving', 'updating', 'updated', 'saved'])
-            ->every(fn($action) => $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion()));
+            ->every(fn ($action) => $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion()));
     }
 
     /** @test */
@@ -89,6 +86,6 @@ class PostsTest extends TestCase
 
         // deleting、deleted
         collect(['deleting', 'deleted'])
-            ->every(fn($action) => $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion()));
+            ->every(fn ($action) => $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion()));
     }
 }
