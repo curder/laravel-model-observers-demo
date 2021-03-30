@@ -42,4 +42,4 @@ DB_CONNECTION=sqlite
 php artisan migrate
 ```
 
-具体内容查看[这里](https://curder.gitbooks.io/laravel_study/content/model/laravel-model-observers.html)
+具体内容查看[这里](https://curder.github.io/laravel-study/model/laravel-model-observers.html)
