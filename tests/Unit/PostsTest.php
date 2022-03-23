@@ -30,7 +30,7 @@ class PostsTest extends TestCase
     /** @test */
     public function it_can_destroy_post(): void
     {
-        $post = factory(Post::class)->create();
+        $post = Post::factory()->create();
 
         Post::destroy($post->id);
         // deleting、deleted
@@ -43,7 +43,7 @@ class PostsTest extends TestCase
     /** @test */
     public function it_can_restore_post(): void
     {
-        $post = factory(Post::class)->create();
+        $post = Post::factory()->create();
 
         Post::destroy($post->id);
 
@@ -61,7 +61,7 @@ class PostsTest extends TestCase
     /** @test */
     public function it_can_force_delete_post(): void
     {
-        $post = factory(Post::class)->create();
+        $post = Post::factory()->create();
 
         $post->forceDelete();
 
@@ -75,7 +75,7 @@ class PostsTest extends TestCase
     /** @test */
     public function it_can_update_post(): void
     {
-        $post = factory(Post::class)->create();
+        $post = Post::factory()->create();
 
         $post->title = 'New Title';
         $post->save();
@@ -92,7 +92,7 @@ class PostsTest extends TestCase
     {
         Post::withoutGlobalScopes();
 
-        $post = factory(Post::class)->create();
+        $post = Post::factory()->create();
         Post::destroy($post->id);
 
         // deleting、deleted
