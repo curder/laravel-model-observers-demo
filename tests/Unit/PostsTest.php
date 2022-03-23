@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Unit;
 
 use App\Models\Post;
@@ -15,7 +16,7 @@ class PostsTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function it_can_create_post() : void
+    public function it_can_create_post(): void
     {
         Post::create(['title' => 'title', 'body' => 'Body']);
 
@@ -27,7 +28,7 @@ class PostsTest extends TestCase
     }
 
     /** @test */
-    public function it_can_destroy_post() : void
+    public function it_can_destroy_post(): void
     {
         $post = factory(Post::class)->create();
 
@@ -40,7 +41,7 @@ class PostsTest extends TestCase
     }
 
     /** @test */
-    public function it_can_restore_post() : void
+    public function it_can_restore_post(): void
     {
         $post = factory(Post::class)->create();
 
@@ -58,7 +59,7 @@ class PostsTest extends TestCase
     }
 
     /** @test */
-    public function it_can_force_delete_post() : void
+    public function it_can_force_delete_post(): void
     {
         $post = factory(Post::class)->create();
 
@@ -72,7 +73,7 @@ class PostsTest extends TestCase
     }
 
     /** @test */
-    public function it_can_update_post() : void
+    public function it_can_update_post(): void
     {
         $post = factory(Post::class)->create();
 
@@ -87,7 +88,7 @@ class PostsTest extends TestCase
     }
 
     /** @test */
-    public function it_can_delete_post() : void
+    public function it_can_delete_post(): void
     {
         Post::withoutGlobalScopes();
 
