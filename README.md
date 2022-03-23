@@ -1,5 +1,8 @@
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/curder/laravel-model-observers-demo/run-tests?label=tests)](https://github.com/curder/laravel-model-observers-demo/actions?query=workflow%3Arun-tests%3Amaster)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/curder/laravel-model-observers-demo/Check%20&%20fix%20styling?label=code%20style)](https://github.com/curder/laravel-model-observers-demo/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
+[![Test Laravel Github action](https://github.com/curder/laravel-model-observers-demo/actions/workflows/run-test.yml/badge.svg?branch=master)](https://github.com/curder/laravel-model-observers-demo/actions/workflows/run-test.yml)
+
+[![PHPStan](https://github.com/curder/laravel-model-observers-demo/actions/workflows/phpstan.yml/badge.svg?branch=master)](https://github.com/curder/laravel-model-observers-demo/actions/workflows/phpstan.yml)
+
+[![Check & fix styling](https://github.com/curder/laravel-model-observers-demo/actions/workflows/php-cs-fixer.yml/badge.svg?branch=master)](https://github.com/curder/laravel-model-observers-demo/actions/workflows/php-cs-fixer.yml)
 
 ## 介绍
 
